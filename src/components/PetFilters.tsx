@@ -76,16 +76,16 @@ export function PetFilters({
 
           {/* Breed */}
           <Select
-            value={filters.breed}
+            value={filters.breed || "all-breeds"}
             onValueChange={(value) => 
-              onFiltersChange({ ...filters, breed: value })
+              onFiltersChange({ ...filters, breed: value === "all-breeds" ? "" : value })
             }
           >
             <SelectTrigger>
               <SelectValue placeholder="Breed" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="">All Breeds</SelectItem>
+              <SelectItem value="all-breeds">All Breeds</SelectItem>
               {currentBreeds.map((breed) => (
                 <SelectItem key={breed} value={breed}>
                   {breed}
