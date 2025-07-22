@@ -79,6 +79,21 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      {/* Navigation */}
+      <div className="bg-background border-b">
+        <div className="container mx-auto px-4 py-4">
+          <div className="flex justify-between items-center">
+            <h1 className="text-2xl font-bold text-primary">FurBaby</h1>
+            <button 
+              onClick={() => navigate('/breeder-login')}
+              className="text-sm text-muted-foreground hover:text-primary transition-colors"
+            >
+              Breeder Login
+            </button>
+          </div>
+        </div>
+      </div>
+      
       <HeroSection />
       
       <div className="container mx-auto px-4 py-12" id="pet-listings">
