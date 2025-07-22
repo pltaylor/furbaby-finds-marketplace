@@ -88,7 +88,15 @@ export default function PetDetails() {
               </div>
               <div className="flex items-center text-muted-foreground">
                 <Star className="h-5 w-5 mr-3 fill-current text-warm-orange" />
-                <span>{pet.breeder.name} • {pet.breeder.rating}/5 rating</span>
+                <span>
+                  <button 
+                    onClick={() => navigate(`/breeder/${pet.breeder.name.toLowerCase().replace(/\s+/g, '-')}`)}
+                    className="hover:text-primary hover:underline transition-colors"
+                  >
+                    {pet.breeder.name}
+                  </button>
+                  {" • "}{pet.breeder.rating}/5 rating
+                </span>
                 {pet.breeder.verified && (
                   <Shield className="h-4 w-4 ml-2 text-primary" />
                 )}
@@ -166,7 +174,12 @@ export default function PetDetails() {
             <CardContent className="space-y-4">
               <div className="flex justify-between">
                 <span className="text-muted-foreground">Name:</span>
-                <span>{pet.breeder.name}</span>
+                <button 
+                  onClick={() => navigate(`/breeder/${pet.breeder.name.toLowerCase().replace(/\s+/g, '-')}`)}
+                  className="hover:text-primary hover:underline transition-colors text-right"
+                >
+                  {pet.breeder.name}
+                </button>
               </div>
               <Separator />
               <div className="flex justify-between">
